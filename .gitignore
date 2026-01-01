@@ -1759,9 +1759,14 @@ __pycache__/
 
 # Virtual environments
 .venv/
+venv/
+env/
 
 # VS Code
 .vscode/
 
 # Windows
 Thumbs.db
+
+# Environment variables
+.env
