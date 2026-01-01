@@ -1770,3 +1770,9 @@ Thumbs.db
 
 # Environment variables
 .env
+fastapi_project_tutorial.egg-info/dependency_links.txt
+fastapi_project_tutorial.egg-info/PKG-INFO
+fastapi_project_tutorial.egg-info/requires.txt
+fastapi_project_tutorial.egg-info/SOURCES.txt
+fastapi_project_tutorial.egg-info/top_level.txt
+app/__pycache__/schemas.cpython-313.pyc
