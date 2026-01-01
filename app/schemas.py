@@ -1,9 +1,17 @@
 from pydantic import BaseModel
+from datetime import datetime
+from uuid import UUID
 
 class PostCreate(BaseModel):
-    title: str
-    content: str
+    caption: str
+    url: str
+    file_type: str
+    file_name: str
 
 class PostResponse(BaseModel):
-    title: str
-    content: str
+    id: UUID
+    caption: str
+    url: str
+    file_type: str
+    file_name: str
+    created_at: datetime
