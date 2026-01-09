@@ -1,163 +1,206 @@
-📱 Social Media App (FastAPI + React)
+# 📱 Social Media App 
 
-A full-stack social media web application built with FastAPI (backend) and React + Vite (frontend).
-Users can register, log in, upload image/video posts with captions, view a feed, and delete their own posts.
+## FastAPI + React (Vite)
 
-✨ Features
-🔐 Authentication
+A full-stack social media web application built with FastAPI for the backend and React (Vite) for the frontend.
 
-User registration and login
+The application allows users to:
 
-JWT-based authentication
+#### -> Register and log in securely
 
-Protected routes (feed, upload, delete)
+#### -> Upload image/video posts with captions
 
-🖼️ Posts & Feed
+#### -> View a responsive feed
 
-Upload images or videos with captions
+#### -> Delete their own posts
 
-Responsive feed layout
+This project is intended as a learning-focused full-stack implementation following real-world patterns.
 
-Owner-only delete functionality
+## ✨ Features
 
-Real-time refresh after upload/delete
+#### 🔐 Authentication
 
-🎨 Frontend UI
+#### -> User registration and login
 
-Modern, responsive UI (Tailwind CSS)
+#### -> JWT-based authentication
 
-Loading skeletons & toast notifications
+#### -> Protected routes for authenticated users
 
-Mobile-first design
+### 🖼️ Posts & Feed
 
-Clean separation of concerns
+#### -> Upload images or videos with captions
 
-🛠️ Tech Stack
-Backend
+#### -> Responsive grid-based feed
 
-FastAPI
+#### -> Delete posts (owner-only)
 
-FastAPI Users (JWT auth)
+#### -> Automatic feed refresh after changes
 
-SQLAlchemy (Async)
+### 🎨 Frontend UI
 
-SQLite (dev database)
+#### -> Modern, minimal UI (Tailwind CSS)
 
-Frontend
+#### -> Loading skeletons and toast notifications
 
-React (Vite)
+#### -> Mobile-first responsive design
 
-TypeScript
+# 🛠️ Tech Stack
 
-Tailwind CSS
+## Backend
+    
+### FastAPI
 
-React Router
+### FastAPI Users (JWT authentication)
 
-TanStack React Query
+### SQLAlchemy (Async)
 
-Axios
+### SQLite (development database)
+    
+##  Frontend
+    
+### React (Vite)
+
+### TypeScript
+
+### Tailwind CSS
+
+### React Router
+
+### TanStack React Query
+
+### Axios
 
 📂 Project Structure
-project-root/
-├── app/                  # FastAPI application
-├── main.py               # Backend entry point
-├── pyproject.toml
-├── .env.example          # Backend env template
-│
-├── social-frontend/      # Frontend (React + Vite)
-│   ├── src/
-│   ├── index.html
-│   ├── package.json
-│   ├── .env.example      # Frontend env template
-│   └── README.md
-│
-└── README.md             # You are here
 
-🚀 Getting Started (Local Development)
-1️⃣ Backend Setup
-# create virtual environment
-python -m venv .venv
-source .venv/bin/activate   # Windows: .venv\Scripts\activate
-
-# install dependencies
-pip install -r requirements.txt
-# or (if using uv)
-uv sync
+    project-root/
+    │
+    ├── app/                    # FastAPI application
+    ├── main.py                 # Backend entry point
+    ├── pyproject.toml
+    ├── .env.example            # Backend env template
+    │
+    ├── social-frontend/        # Frontend (React + Vite)
+    │   ├── src/
+    │   ├── index.html
+    │   ├── package.json
+    │   ├── .env.example        # Frontend env template
+    │   └── README.md
+    │
+    └── README.md               # Project documentation
 
 
-Create backend .env:
 
-DATABASE_URL=sqlite+aiosqlite:///./test.db
-SECRET=your-secret-key
+## 🚀 Getting Started (Local Development)
+### 1️⃣ Backend Setup
 
+#### Create and activate a virtual environment:
 
-Run backend:
-
-uvicorn main:app --reload
-
-
-Backend runs at:
-
-http://localhost:8000
+    python -m venv .venv
+    source .venv/bin/activate      # Windows: .venv\Scripts\activate
 
 
-Docs:
+#### Install dependencies:
 
-http://localhost:8000/docs
-
-2️⃣ Frontend Setup
-cd social-frontend
-npm install
-cp .env.example .env
-npm run dev
+    pip install -r requirements.txt
+    # OR (if using uv)
+    uv sync
 
 
-Frontend runs at:
+#### Create a backend .env file:
 
-http://localhost:5173
+    DATABASE_URL=sqlite+aiosqlite:///./test.db
+    SECRET=your-secret-key
 
-🌐 API Overview
-Method	Endpoint	Description
-POST	/auth/register	Register user
-POST	/auth/jwt/login	Login (JWT)
-GET	/feed	Get posts feed
-POST	/upload	Upload image/video
-DELETE	/posts/{id}	Delete own post
-🔒 CORS Configuration (Important)
 
-If frontend cannot access backend, enable CORS in FastAPI:
+#### Run the backend server:
 
-from fastapi.middleware.cors import CORSMiddleware
+    uvicorn main:app --reload
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 
-🧪 Notes
+#### Backend will be available at:
 
-node_modules/, .venv/, and .env files are not committed
+    http://localhost:8000
 
-SQLite is used for development only
 
-JWT token is stored in localStorage
+#### API documentation:
 
-📌 Future Improvements
+    http://localhost:8000/docs
 
-Likes & comments
+### 2️⃣ Frontend Setup
 
-User profiles
+#### Navigate to the frontend directory:
 
-Pagination / infinite scroll
+    cd social-frontend
 
-Cloud storage for media (S3 / Cloudinary)
 
-Production deployment (Docker + CI/CD)
+#### Install dependencies:
 
-👨‍💻 Author
+    npm install
 
-Amulya Kundalia
-Built as a learning-focused full-stack project using FastAPI & React.
+
+#### Create frontend environment file:
+
+    cp .env.example .env
+
+
+#### Start the development server:
+
+    npm run dev
+
+
+#### Frontend will be available at:
+
+    http://localhost:5173
+
+### 🌐 API Overview
+
+    | Method | Endpoint          | Description           |
+    | ------ | ----------------- | --------------------- |
+    | POST   | `/auth/register`  | Register a new user   |
+    | POST   | `/auth/jwt/login` | Login and receive JWT |
+    | GET    | `/feed`           | Fetch posts feed      |
+    | POST   | `/upload`         | Upload image/video    |
+    | DELETE | `/posts/{id}`     | Delete own post       |
+
+
+#### If the frontend cannot communicate with the backend, enable CORS in FastAPI:
+
+    from fastapi.middleware.cors import CORSMiddleware
+
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=["http://localhost:5173"],
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
+
+
+##### Restart the backend after adding this.
+
+### 🧪 Notes
+
+#### .env, .venv, and node_modules are not committed
+
+#### SQLite is used only for development
+
+#### JWT token is stored in localStorage
+
+#### Backend and frontend run on separate servers in development
+
+### 📌 Future Improvements
+
+#### Likes and comments
+
+#### User profile pages
+
+#### Pagination / infinite scrolling
+
+#### Cloud storage for media (S3 / Cloudinary)
+
+#### Dockerized deployment
+
+## 👨‍💻 Author
+
+#### Amulya Kundalia (Latiasx)
+##### Built as a full-stack learning project using FastAPI and React
