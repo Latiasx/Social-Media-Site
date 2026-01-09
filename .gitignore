@@ -1777,3 +1777,6 @@ fastapi_project_tutorial.egg-info/SOURCES.txt
 fastapi_project_tutorial.egg-info/top_level.txt
 app/__pycache__/schemas.cpython-313.pyc
 test.db
+
+# Node Frontend
+social-frontend/node_modules/

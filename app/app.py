@@ -7,6 +7,7 @@ from sqlalchemy import select
 from app.images import imagekit
 from app.users import auth_backend, current_active_user, fastapi_users
 from app.schemas import UserCreate, UserRead, UserUpdate
+from fastapi.middleware.cors import CORSMiddleware
 import shutil
 import os
 import uuid
@@ -129,3 +130,12 @@ async def delete_post(post_id: str, session: AsyncSession = Depends(get_async_se
     except Exception as e:
         await session.rollback()
         raise HTTPException(status_code=500,detail=str(e))
+
+#Establishing link between frontend and backend
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
